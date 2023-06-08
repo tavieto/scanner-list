@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1021224095596",
+    "project_id": "scanner-list",
+    "storage_bucket": "scanner-list.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021224095596:android:27c5eca2a6690a31e56d49",
+        "android_client_info": {
+          "package_name": "dev.tavieto.scannerlist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021224095596-o9n5umrj5jmnrq0kikgv7tj7krvfha38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfIcbGl6sJVfgAot4FBFB0Xb1riXprTU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021224095596-o9n5umrj5jmnrq0kikgv7tj7krvfha38.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
