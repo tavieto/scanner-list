@@ -9,6 +9,7 @@
         android:required="false"/>
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:dataExtractionRules="@xml/data_extraction_rules"

@@ -1,10 +1,9 @@
-package dev.tavieto.scannerlist.fragments.scanner;
+package dev.tavieto.scannerlist.feature.scanner;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
@@ -15,7 +14,6 @@ import com.budiyev.android.codescanner.CodeScanner;
 import org.jetbrains.annotations.NotNull;
 
 import dev.tavieto.scannerlist.databinding.FragmentScannerBinding;
-import dev.tavieto.scannerlist.fragments.scanner.ScannerFragmentDirections;
 
 public class ScannerFragment extends Fragment {
     private FragmentScannerBinding binding = null;
@@ -41,12 +39,12 @@ public class ScannerFragment extends Fragment {
                 Navigation.findNavController(binding.getRoot()).navigate(action);
             });
         });
-        binding.codeScannerView.setOnClickListener(v -> codeScanner.startPreview());
+        binding.btnStart.setOnClickListener(v -> codeScanner.startPreview());
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         binding = null;
         codeScanner.releaseResources();
     }
