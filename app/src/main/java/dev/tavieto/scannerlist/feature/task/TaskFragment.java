@@ -15,14 +15,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import dev.tavieto.scannerlist.databinding.FragmentTaskBinding;
-import dev.tavieto.scannerlist.model.Task;
+import dev.tavieto.scannerlist.entity.Task;
 
 public class TaskFragment extends Fragment {
     private FragmentTaskBinding binding = null;

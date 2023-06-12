@@ -1,10 +1,14 @@
 package dev.tavieto.scannerlist.feature.scanner;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
@@ -32,6 +36,8 @@ public class ScannerFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        requestCameraPermission();
+
         codeScanner = new CodeScanner(requireActivity(), binding.codeScannerView);
         codeScanner.setDecodeCallback(result -> {
             requireActivity().runOnUiThread(() -> {
@@ -40,6 +46,12 @@ public class ScannerFragment extends Fragment {
             });
         });
         binding.btnStart.setOnClickListener(v -> codeScanner.startPreview());
+    }
+
+    private void requestCameraPermission() {
+        if (ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.CAMERA}, 123);
+        }
     }
 
     @Override

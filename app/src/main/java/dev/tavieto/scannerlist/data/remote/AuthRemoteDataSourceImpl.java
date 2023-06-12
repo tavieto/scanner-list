@@ -44,6 +44,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
                             new User(firebaseUser.getUid(), emailValue, firebaseUser.getDisplayName()));
                 }
             });
+            result.addOnFailureListener(emitter::onError);
         });
     }
 

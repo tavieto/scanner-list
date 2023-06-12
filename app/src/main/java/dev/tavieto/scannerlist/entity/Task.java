@@ -1,4 +1,4 @@
-package dev.tavieto.scannerlist.model;
+package dev.tavieto.scannerlist.entity;
 
 import androidx.annotation.NonNull;
 

@@ -24,13 +24,12 @@ public class LoginViewModel extends ViewModel {
         this.repository = repository;
         this.compositeDisposable = new CompositeDisposable();
     }
-    private final MutableLiveData<String> _email = new MutableLiveData<>("testando@funfou.yeah");
+    private final MutableLiveData<String> _email = new MutableLiveData<>("user@test.com");
     final LiveData<String> email = _email;
-    private final MutableLiveData<String> _password = new MutableLiveData<>("123456");
+    private final MutableLiveData<String> _password = new MutableLiveData<>("123abc");
     final LiveData<String> password = _password;
     private final MutableLiveData<Boolean> _isLogged = new MutableLiveData<>(false);
     final LiveData<Boolean> isLogged = _isLogged;
-
 
     public void setEmail(String email) {
         this._email.postValue(email);
@@ -54,16 +53,9 @@ public class LoginViewModel extends ViewModel {
         Disposable loginObs = repository.login(emailValue, passwordValue)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnError(err -> {
-                    Log.e("UserFirebaseCheck", "something went wrong", err);
-                })
+                .doOnError(Throwable::printStackTrace)
                 .subscribe(result -> {
                     _isLogged.postValue(result != null);
-                    if (result != null) {
-                        Log.d("UserFirebaseCheck", "uid: " + result.getUid());
-                        Log.d("UserFirebaseCheck", "email: " + result.getEmail());
-                        Log.d("UserFirebaseCheck", "name: " + result.getName());
-                    }
                 });
         compositeDisposable.add(loginObs);
     }

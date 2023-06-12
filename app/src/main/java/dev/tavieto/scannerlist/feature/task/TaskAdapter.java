@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import dev.tavieto.scannerlist.R;
-import dev.tavieto.scannerlist.model.Task;
+import dev.tavieto.scannerlist.entity.Task;
 
 class TaskAdapter extends ListAdapter<Task, TaskViewHolder> {
     private final OnItemCheckedChange callback;

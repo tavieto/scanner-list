@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import dev.tavieto.scannerlist.databinding.ItemTaskBinding;
-import dev.tavieto.scannerlist.model.Task;
+import dev.tavieto.scannerlist.entity.Task;
 
 class TaskViewHolder extends RecyclerView.ViewHolder {
     private final ItemTaskBinding binding;

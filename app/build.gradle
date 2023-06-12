@@ -19,9 +19,24 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    def localFile = rootProject.file('local.properties').newDataInputStream()
+    def local = new Properties()
+    local.load(localFile)
+
+    signingConfigs {
+        release {
+            storeFile file('./keystore.jks')
+            storePassword local['KEYSTORE_PASSWORD'] as String
+            keyAlias local['KEYSTORE_ALIAS'] as String
+            keyPassword local['KEYSTORE_PASSWORD'] as String
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            debuggable false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
